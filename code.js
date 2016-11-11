@@ -65,8 +65,8 @@ for (i = 0; i < size.length; i++) {
   for (j = 0; j < size[0]; j++) {
     network.add({
       group: "nodes",
-      data: { id: "i" },
-      //position: { x: 5000, y: 5000 }
+      data: {id: (i * 10 + j).toString(), weight: 100},
+      position: { x: (i+2) * 100, y: (j+2) * 100 }
     });
   }
 }
