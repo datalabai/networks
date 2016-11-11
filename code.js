@@ -33,7 +33,7 @@ var network = cytoscape({
 // create nodes
 var size = [3, 4, 2]
 for (let i = 0; i < size.length; i++) {
-  for (let j = 0; j < size[0]; j++) {
+  for (let j = 0; j < size[i]; j++) {
     network.add({
       group: "nodes",
       data: {id: (i * 10 + j).toString(), weight: 100},
@@ -46,7 +46,7 @@ for (let i = 0; i < size.length; i++) {
 iterator = size.slice(0, -1).entries();
 for (let e of iterator) {
   for(let j = 0; j < e[1]; j++){
-    for(let k = 0; k < size[e[0]]; k++){
+    for(let k = 0; k < size[e[0]+1]; k++){
       network.add({
         group: "edges",
         data: {source: (e[0] * 10 + j).toString(), target: ((e[0]+1) * 10 + k).toString()}
