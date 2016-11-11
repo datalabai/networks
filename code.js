@@ -1,4 +1,4 @@
-$(function(){ // on dom ready
+$(function(){
 
 var network = cytoscape({
   container: document.getElementById('network'),
@@ -28,6 +28,7 @@ var network = cytoscape({
         'transition-duration': '0.5s'
       }),
 
+/*
   elements: {
       nodes: [
         { data: { id: 'a' } },
@@ -54,8 +55,38 @@ var network = cytoscape({
     roots: '#a',
     padding: 10
   }
+  */
 });
 
+
+// create nodes
+var size = [3, 4, 2]
+for (i = 0; i < size.length; i++) {
+  for (j = 0; j < size[0]; j++) {
+    network.add({
+      group: "nodes",
+      data: { id: "i" },
+      //position: { x: 5000, y: 5000 }
+    });
+  }
+}
+
+// create edges
+/*
+for (i = 0; i < size.slice(0, -1).entries(); i++) {
+  for (j = 0; j < size[0]; j++) {
+      for (k = 0; k < size[0]; k++) {
+      network.add({
+        group: "nodes",
+        data: { weight: i * 10 + j },
+        position: { x: i, y: j }
+      });
+    }
+  }
+}
+*/
+
+/*
 var bfs = network.elements().bfs('#a', function(){}, true);
 
 var i = 0;
@@ -70,5 +101,5 @@ var highlightNextEle = function(){
 
 // kick off first highlight
 highlightNextEle();
-
-}); // on dom ready
+*/
+});
