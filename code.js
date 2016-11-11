@@ -31,13 +31,15 @@ var network = cytoscape({
 
 
 // create nodes
-var size = [3, 4, 2]
+let size = [3, 4, 2];
+let X = 1000, Y = 1000;
+
 for (let i = 0; i < size.length; i++) {
   for (let j = 0; j < size[i]; j++) {
     network.add({
       group: "nodes",
       data: {id: (i * 10 + j).toString(), weight: 100},
-      position: { x: (i+2) * 100, y: (j+2) * 100 }
+      position: { x: X/2 + (i * 2 - size.length) * 100, y: Y/2 + (2 * j - size[i]) * 100 }
     });
   }
 }
